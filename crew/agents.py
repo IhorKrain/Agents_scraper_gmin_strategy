@@ -1,5 +1,10 @@
 from crewai import Agent
+from crewai.llm import LLM
 
+import os
+os.environ["OPENAI_API_KEY"] = "fake_key"
+
+llm=LLM(model="ollama/llama3", base_url="http://localhost:11434")
 # Agent 1: Czy to strategia?
 strategia_checker = Agent(
     role='Ekspert ds. strategii rozwoju',
@@ -11,7 +16,8 @@ strategia_checker = Agent(
         "Potrafisz wyłapać elementy charakterystyczne strategii: cele strategiczne, analiza SWOT, kierunki działań, itp. "
         "Unikasz fałszywych pozytywów i analizujesz dokumenty w sposób krytyczny i szczegółowy."
     ),
-    verbose=True
+    verbose=True,
+    llm = llm
 )
 
 # Agent 2: Zakres lat
@@ -23,7 +29,8 @@ zakres_checker = Agent(
         "Twoim zadaniem jest dokładne określenie lat obowiązywania dokumentu — np. 2021–2030 albo 2014–... "
         "Znasz typowe sposoby zapisu takich dat i potrafisz je znaleźć nawet w trudnym układzie tekstu."
     ),
-    verbose=True
+    verbose=True,
+    llm = llm
 )
 
 # Agent 3: Jednostka samorządowa
@@ -36,5 +43,7 @@ jednostka_checker = Agent(
         "a także określić jej nazwę (np. Gmina Wólka, Miasto Lublin, Powiat lubelski). "
         "Masz dużą wiedzę na temat podziału administracyjnego Polski i rozpoznajesz charakterystyczne sformułowania."
     ),
-    verbose=True
+    verbose=True,
+    llm = llm
 )
+
