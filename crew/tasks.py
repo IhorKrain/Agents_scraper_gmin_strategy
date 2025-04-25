@@ -1,6 +1,6 @@
 from crewai import Task
 from crew.agents import strategia_checker, zakres_checker, jednostka_checker
-from rag.tool_qa import qa_tool
+from rag.tool_qa import query_strategy_tool
 
 
 # zakładamy, że masz funkcję rag jako narzędzie
@@ -19,7 +19,7 @@ strategia_task = Task(
         "Odpowiedź TAK lub NIE, oraz krótkie uzasadnienie decyzji na podstawie dokumentu."
     ),
     agent=strategia_checker,
-    tools=[qa_tool]
+    tools=[query_strategy_tool]
 )
 
 # Zadanie 2: Zakres czasowy dokumentu
@@ -31,7 +31,7 @@ zakres_task = Task(
     ),
     expected_output="Zakres lat w formacie: RRRR–RRRR lub RRRR–...",
     agent=zakres_checker,
-    tools=[qa_tool]
+    tools=[query_strategy_tool]
 )
 
 # Zadanie 3: Jakiej jednostki dotyczy dokument?
@@ -43,5 +43,5 @@ jednostka_task = Task(
     ),
     expected_output="Nazwa jednostki w formacie: Gmina X, Miasto Y, Powiat Z, itp.",
     agent=jednostka_checker,
-    tools=[qa_tool]
+    tools=[query_strategy_tool]
 )

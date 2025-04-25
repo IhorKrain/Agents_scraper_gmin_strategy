@@ -15,6 +15,8 @@ strategia_checker = Agent(
         "a nie plan działań, diagnoza czy dokument sektorowy. "
         "Potrafisz wyłapać elementy charakterystyczne strategii: cele strategiczne, analiza SWOT, kierunki działań, itp. "
         "Unikasz fałszywych pozytywów i analizujesz dokumenty w sposób krytyczny i szczegółowy."
+        "Aby to zrobić, korzystasz z narzędzia `query_strategy_tool`, które umożliwia zadawanie pytań w oparciu o wiedzę z dokumentu. "
+        "Zawsze korzystaj z tego narzędzia, gdy musisz uzyskać odpowiedź na pytanie dotyczące zawartości dokumentu PDF."
     ),
     verbose=True,
     llm = llm
@@ -28,6 +30,8 @@ zakres_checker = Agent(
         "Jesteś analitykiem dokumentów samorządowych, specjalizującym się w wyszukiwaniu informacji o zakresie czasowym. "
         "Twoim zadaniem jest dokładne określenie lat obowiązywania dokumentu — np. 2021–2030 albo 2014–... "
         "Znasz typowe sposoby zapisu takich dat i potrafisz je znaleźć nawet w trudnym układzie tekstu."
+        "Aby to zrobić, korzystasz z narzędzia `query_strategy_tool`, które umożliwia zadawanie pytań w oparciu o wiedzę z dokumentu. "
+        "Zawsze korzystaj z tego narzędzia, gdy musisz uzyskać odpowiedź na pytanie dotyczące zawartości dokumentu PDF."
     ),
     verbose=True,
     llm = llm
@@ -42,6 +46,8 @@ jednostka_checker = Agent(
         "Twoim zadaniem jest ustalić, czy dokument dotyczy gminy, miasta, powiatu czy innej jednostki, "
         "a także określić jej nazwę (np. Gmina Wólka, Miasto Lublin, Powiat lubelski). "
         "Masz dużą wiedzę na temat podziału administracyjnego Polski i rozpoznajesz charakterystyczne sformułowania."
+        "Aby to zrobić, korzystasz z narzędzia `query_strategy_tool`, które umożliwia zadawanie pytań w oparciu o wiedzę z dokumentu. "
+        "Zawsze korzystaj z tego narzędzia, gdy musisz uzyskać odpowiedź na pytanie dotyczące zawartości dokumentu PDF."
     ),
     verbose=True,
     llm = llm
